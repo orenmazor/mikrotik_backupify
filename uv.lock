@@ -1,0 +1,22 @@
+version = 1
+requires-python = ">=3.12"
+
+[[package]]
+name = "mikrotik-backup"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "routeros-api" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "routeros-api", specifier = ">=0.18.1" }]
+
+[[package]]
+name = "routeros-api"
+version = "0.18.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/45/e0/6fc37314480579bec7e4678ee288c9352131578ab8fb1ffaacac7abc98b9/routeros_api-0.18.1.tar.gz", hash = "sha256:23a426f8a3b80fae7d99311ec0253b19894ed2d1688b20281dea847bd93cb7bc", size = 12697 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/aa/a7/9c00be853b1cd909c166593ed4c933538e6f2861f83566dfd8124da36701/RouterOS_api-0.18.1-py2.py3-none-any.whl", hash = "sha256:e0decdc9438a1cfcc8d7e3cdfdbba8fcb58980b104376f2d88c19432e8b565fc", size = 20917 },
+]
