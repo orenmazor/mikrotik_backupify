@@ -12,10 +12,10 @@ tasks:
   build:
     cmds:
       - docker buildx build -t mikrotik_backup --platform linux/amd64 .
-      - docker tag mikrotik_backup ghcr.io/orenmazor/mikrotik_backup:latest
+      - docker tag mikrotik_backup ghcr.io/orenmazor/mikrotik_backupify:latest
 
   deploy:
     cmds:
       - task: build
       - echo {{.GITHUB_TOKEN}} | docker login ghcr.io -u orenmazor --password-stdin
-      - docker push ghcr.io/orenmazor/mikrotik_backup:latest
+      - docker push ghcr.io/orenmazor/mikrotik_backupify:latest
