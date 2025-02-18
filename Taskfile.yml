@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    summary: by default just run this once
+    cmds:
+      - uv run backup.py
+    silent: true
+
+  build:
+    cmds:
+      - docker buildx build -t mikrotik_backup --platform linux/amd64 .
+      - docker tag mikrotik_backup ghcr.io/orenmazor/mikrotik_backup:latest
+
+  deploy:
+    cmds:
+      - task: build
+      - echo {{.GITHUB_TOKEN}} | docker login ghcr.io -u orenmazor --password-stdin
+      - docker push ghcr.io/orenmazor/mikrotik_backup:latest
